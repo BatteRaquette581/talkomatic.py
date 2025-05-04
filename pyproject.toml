@@ -34,7 +34,13 @@ Homepage = "https://github.com/BatteRaquette581/talkomatic.py/"
 Issues = "https://github.com/BatteRaquette581/talkomatic.py/issues/"
 
 [tool.setuptools]
-packages = ["talkomatic"]
+packages = [
+    "talkomatic",
+    "talkomatic.api",
+    "talkomatic.api.v1",
+    "talkomatic.commands",
+    "talkomatic.dataclasses"
+]
 
 [tool.setuptools.dynamic]
 dependencies = { file = "requirements.txt" }
