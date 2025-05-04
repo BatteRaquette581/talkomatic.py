@@ -16,7 +16,6 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Operating System :: OS Independent",
-    "License :: OSI Approved :: MIT License",
     "Intended Audience :: Developers",
     "Natural Language :: English",
     "Topic :: Internet",
@@ -33,6 +32,9 @@ license-files = ["LICEN[CS]E*"]
 Documentation = "https://batteraquette581.github.io/talkomatic.py-docs/"
 Homepage = "https://github.com/BatteRaquette581/talkomatic.py/"
 Issues = "https://github.com/BatteRaquette581/talkomatic.py/issues/"
+
+[tool.setuptools]
+packages = ["talkomatic"]
 
 [tool.setuptools.dynamic]
 dependencies = { file = "requirements.txt" }

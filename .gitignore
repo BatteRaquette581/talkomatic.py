@@ -176,3 +176,6 @@ cython_debug/
 # doxygen folders
 docs
 doxygen
+
+# PyPI token
+token.txt
