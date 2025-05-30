@@ -44,8 +44,8 @@ class Bot:
     _fully_started: bool = False
 
     on_connect_binding               : Binding = None
-    on_room_creation_binding         : Binding = None
     on_inactivity_disconnect_binding : Binding = None
+    on_room_creation_binding         : Binding = None
     on_room_join_binding             : Binding = None
     on_room_leave_binding            : Binding = None
     on_user_message_binding          : Binding = None
