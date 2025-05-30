@@ -5,7 +5,7 @@ This example shows making a bot keeping track of votes, and banned users.
 """
 
 
-from talkomatic import Bot # import the Bot class from the talkomatic package
+from talkomatic import Bot, RoomType # import the Bot class from the talkomatic package
 
 
 bot = Bot() # create a new Bot instance
@@ -15,9 +15,9 @@ bot = Bot() # create a new Bot instance
 async def on_connect() -> None:
     # we find the first non-full room, and we join it
     for room in bot.rooms:
-        if not room.is_full:
+        if (not room.is_full) and room.room_type == RoomType.PUBLIC:
             await bot.join_room(room)
-            break
+            return
     print("We didn't find any non-full rooms to join. :(") # :(
     await bot.disconnect()
 
