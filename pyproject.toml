@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "talkomatic.py"
-version = "0.1.0"
+version = "0.1.1"
 description = "An easy-to-use Python versatile wrapper for the Talkomatic Bot interface ensuring best practices for making bots, and handling the REST API."
 readme = "README.md"
 requires-python = ">=3.8"

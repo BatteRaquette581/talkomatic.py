@@ -28,5 +28,5 @@ __all__ = [
 ]
 __author__  = "BatteRaquette581 & the talkomatic.py GitHub contributors"
 __license__ = "MIT"
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __title__   = "talkomatic.py"
