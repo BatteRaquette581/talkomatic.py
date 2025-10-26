@@ -1,5 +1,5 @@
+from talkomatic.api.v1.auth import API_AUTH_HEADERS, get_auth_bot_token
 from talkomatic.dataclasses import Room, RoomType, RoomLayoutType
-from .api_key import auth_headers
 
 from requests import get as requests_get
 from requests import post as requests_post
@@ -15,7 +15,7 @@ def get_rooms() -> list[Room]:
         list[Room]: A list of all visible rooms.
     """
 
-    rooms = requests_get("https://classic.talkomatic.co/api/v1/rooms", headers = auth_headers).json()
+    rooms = requests_get(f"https://classic.talkomatic.co/api/v1/rooms?token={get_auth_bot_token()}", headers = API_AUTH_HEADERS).json()
     return [Room.from_raw_json(room) for room in rooms]
 
 def get_room(room_id: int) -> Room:
@@ -29,7 +29,7 @@ def get_room(room_id: int) -> Room:
         Room: The room with the given ID.
     """
 
-    room = requests_get(f"https://classic.talkomatic.co/api/v1/rooms/{room_id}", headers = auth_headers).json()
+    room = requests_get(f"https://classic.talkomatic.co/api/v1/rooms/{room_id}?token={get_auth_bot_token()}", headers = API_AUTH_HEADERS).json()
     return Room.from_raw_json(room)
 
 def create_room(room_name: str, room_type: RoomType, layout: RoomLayoutType) -> int:
@@ -45,7 +45,7 @@ def create_room(room_name: str, room_type: RoomType, layout: RoomLayoutType) -> 
         int: The ID of the created room.
     """
 
-    response = requests_post(f"https://classic.talkomatic.co/api/v1/rooms", headers = auth_headers, json = {
+    response = requests_post(f"https://classic.talkomatic.co/api/v1/rooms?token={get_auth_bot_token()}", headers = API_AUTH_HEADERS, json = {
         "name": room_name,
         "type": room_type.value,
         "layout": layout.value
@@ -78,7 +78,7 @@ def can_join_room(room_id: int, access_code: int | None = None) -> RoomJoinStatu
         bool: Whether the room can be joined.
     """
 
-    response = requests_post(f"https://classic.talkomatic.co/api/v1/rooms/{room_id}/join", headers = auth_headers, json = {
+    response = requests_post(f"https://classic.talkomatic.co/api/v1/rooms/{room_id}/join?token={get_auth_bot_token()}", headers = API_AUTH_HEADERS, json = {
         "accessCode": str(access_code) if access_code else None
     })
     if response.status_code == 200: return RoomJoinStatus.SUCCESS
