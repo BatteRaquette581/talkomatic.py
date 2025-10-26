@@ -5,7 +5,7 @@ A wrapper for the v1 Talkomatic REST API using dataclasses
 to represent the data returned by the API.
 """
 
-from .api_key import auth_headers, valid_api_key
+from .auth import API_AUTH_HEADERS, get_auth_bot_token
 from .config import ServerConfig
 from .emoji_list import emoji_list
 from .health import ServerHealth
@@ -19,11 +19,10 @@ __all__ = [
     "ServerHealth",
     "UserSession",
     "WordFilter",
-    "auth_headers",
     "can_join_room",
     "create_room",
     "emoji_list",
+    "get_auth_bot_token",
     "get_room",
     "get_rooms",
-    "valid_api_key"
 ]

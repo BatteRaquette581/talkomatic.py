@@ -179,3 +179,6 @@ doxygen
 
 # PyPI token
 token.txt
+
+# Talkomatic secret bot token
+BOT_TOKEN_DO_NOT_SHARE_OR_DELETE_OR_MODIFY

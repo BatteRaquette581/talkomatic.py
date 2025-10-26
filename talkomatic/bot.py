@@ -1,4 +1,4 @@
-from .api.v1 import ServerConfig, can_join_room, RoomJoinStatus
+from .api.v1 import ServerConfig, can_join_room, RoomJoinStatus, get_auth_bot_token
 from .commands import Command, CommandParameter
 from .dataclasses import *
 
@@ -114,7 +114,9 @@ class Bot:
             async_run(self.disconnect())
 
     async def _run(self, username: str, location: str) -> None:
-        await self.sio.connect("https://classic.talkomatic.co/")
+        await self.sio.connect("https://classic.talkomatic.co/", auth = {
+            "token": get_auth_bot_token()
+        })
         await self._join_lobby(username, location)
         self.sio.on("signin status", self._signin_status)
         await self.sio.emit("check signin status")

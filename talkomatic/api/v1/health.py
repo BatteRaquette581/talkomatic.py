@@ -1,3 +1,5 @@
+from talkomatic.api.v1.auth import get_auth_bot_token
+
 from requests import get as requests_get
 
 from dataclasses import dataclass
@@ -22,7 +24,7 @@ class ServerHealth:
     
     @classmethod
     def get(cls) -> "ServerHealth":
-        response = requests_get("https://classic.talkomatic.co/api/v1/health")
+        response = requests_get(f"https://classic.talkomatic.co/api/v1/health?token={get_auth_bot_token()}")
         if response.status_code != 200: 
             return cls(
                 status = False,
