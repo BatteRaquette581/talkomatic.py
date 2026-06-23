@@ -78,6 +78,8 @@ def can_join_room(room_id: int, access_code: int | None = None) -> RoomJoinStatu
         bool: Whether the room can be joined.
     """
 
+    return RoomJoinStatus.SUCCESS # temporary hack until we have a real way to get the number of max rooms...
+
     response = requests_post(f"https://classic.talkomatic.co/api/v1/rooms/{room_id}/join?token={get_auth_bot_token()}", headers = API_AUTH_HEADERS, json = {
         "accessCode": str(access_code) if access_code else None
     })
