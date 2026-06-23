@@ -158,7 +158,7 @@ This program creates a bot, that:
 - And sends a welcome message when the room has been joined
 - Creates a bot with username "My Room", and location "Bot" that will connect to the Talkomatic server
 
-Like any talkomatic bot, this can be halted with Ctrl+C.
+Like any talkomatic.py bot, this can be halted with Ctrl+C.
 
 ### Echo bot example
 
