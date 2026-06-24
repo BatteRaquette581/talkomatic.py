@@ -47,7 +47,7 @@ class ServerConfig:
     @classmethod
     def get(cls) -> "ServerConfig":
         response = requests_get(f"https://classic.talkomatic.co/api/v1/config?token={get_auth_bot_token()}")
-        if response.status_code != 200: raise RuntimeError("The talkomatic.co server is down.")
+        if not response.ok: raise RuntimeError("The talkomatic.co server is down.")
         data = response.json()
         limits = data["limits"]
         features = data["features"]
