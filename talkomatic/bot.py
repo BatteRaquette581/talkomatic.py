@@ -114,7 +114,9 @@ class Bot:
             async_run(self.disconnect())
 
     async def _run(self, username: str, location: str) -> None:
-        await self.sio.connect("https://classic.talkomatic.co/", auth = {
+        await self.sio.connect("https://classic.talkomatic.co/", headers = {
+            "User-Agent": "talkobot"
+        }, auth = {
             "token": get_auth_bot_token()
         })
         await self._join_lobby(username, location)

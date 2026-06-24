@@ -17,12 +17,15 @@ class ServerConfig:
     - max_room_name_length: The maximum length of a room name.
     - max_message_length: The maximum length of a message.
     - max_room_capacity: The maximum number of users in a room.
+    - base_max_rooms: TODO
+    - room_scaling_increment: TODO
     - max_connections_per_ip: The maximum number of connections per IP.
     - socket_max_requests_window: The maximum number of requests per window.
     - socket_max_requests_per_window: The maximum number of requests per window.
     - chat_update_rate_limit: The maximum number of chat updates per minute.
     - typing_rate_limit: The maximum number of typing updates per minute.
     - connection_delay: The delay in milliseconds between a user connecting and the first chat update.
+    - max_id_gen_attempts: TODO
     - word_filter_enabled: Whether the word filter is enabled.
     - api_version: The version of the API.
     - server_version: The version of the server.
